@@ -6,9 +6,8 @@ let humanChoice;
 let cpuChoice;
 
 
-
-function playRound() {
-
+function playRound()
+{
   // Intro text
   console.log(`This is round ${roundsPlayed + 1}. Human: ${humanWins} | CPU: ${cpuWins}`)
 
@@ -24,34 +23,44 @@ function playRound() {
   }
 
   // Process the human input
-  if (humanChoiceInput == "rock") {
+  if (humanChoiceInput == "rock")
+  {
     console.log("You chose Rock!");
     humanChoice = 0;
-  } else if (humanChoiceInput == "paper") {
+  }
+  else if (humanChoiceInput == "paper")
+  {
     console.log("You chose Paper!");
     humanChoice = 1;
-  } else if (humanChoiceInput == "scissors") {
+  }
+  else if (humanChoiceInput == "scissors")
+  {
     console.log("You chose Scissors!");
     humanChoice = 2;
-  } else {
+  }
+  else
+  {
     console.log("Input undefined! You panicked and chose Rock.")
     humanChoice = 0;
   }
 
   // Computer makes a random choice...
   let cpuChoiceInput = Math.random();
-  if (0 <= cpuChoiceInput  && cpuChoiceInput <= 1/3) {
+  if (0 <= cpuChoiceInput  && cpuChoiceInput <= 1/3)
+  {
     console.log("CPU chose Rock!");
     cpuChoice = 0;
-  } else if (cpuChoiceInput <= 2/3) {
+  }
+  else if (cpuChoiceInput <= 2/3)
+  {
     console.log("CPU chose Paper!");
     cpuChoice = 1;
-  } else {
+  }
+  else
+  {
     console.log("CPU chose Scissors!");
     cpuChoice = 2;
   }
-
-  // Show the computer's actual random number choice, if desired
   // console.log("Computer chose: " + cpuChoiceInput);
 
   // Rock vs Paper vs Scissors!
@@ -65,10 +74,14 @@ function playRound() {
 
   if (humanChoice == cpuChoice) {
     console.log("It's a tie!");
-  } else if (loseCond1 || loseCond2 || loseCond3) {
+  }
+  else if (loseCond1 || loseCond2 || loseCond3)
+  {
     console.log("You lose!");
     cpuWins++;
-  } else if (winCond1 || winCond2 || winCond3) {
+  }
+  else if (winCond1 || winCond2 || winCond3)
+  {
     console.log("You win!");
     humanWins++;
   }
@@ -76,9 +89,11 @@ function playRound() {
   roundsPlayed++;
 }
 
-
-function playGame() {
-  for (let i = 1; i < 6; i++) {
+// Play 5 rounds
+function playGame()
+{
+  for (let i = 1; i < 6; i++)
+  {
     playRound();
   }
   console.log(`Final score: Human: ${humanWins} | CPU: ${cpuWins}`)
