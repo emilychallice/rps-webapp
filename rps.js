@@ -2,10 +2,6 @@ let humanWins = 0;
 let cpuWins = 0;
 let roundsPlayed = humanWins + cpuWins
 
-//let humanChoice = 0;
-//let cpuChoice = 0;
-
-// Human makes a choice...
 const rockButton = document.querySelector("#rock-button");
 const paperButton = document.querySelector("#paper-button");
 const scissorsButton = document.querySelector("#scissors-button");
@@ -14,6 +10,7 @@ const headerTitle = document.querySelector("#page-header-title");
 const headerStatement = document.querySelector("#page-header-statement");
 const scoreboardHumanScore = document.querySelector("#scoreboard-human-score");
 const scoreboardCPUScore = document.querySelector("#scoreboard-cpu-score");
+
 
 function selectButton(e)
 {
@@ -38,6 +35,14 @@ rockButton.addEventListener("click", selectButton);
 paperButton.addEventListener("click", selectButton);
 scissorsButton.addEventListener("click", selectButton);
 
+// Computer makes a random choice...
+function getCpuChoice()
+{
+  let cpuChoiceInput = Math.random();
+  if (0 <= cpuChoiceInput  && cpuChoiceInput <= 1/3) return 0; // CPU CHOOSES ROCK
+  else if (cpuChoiceInput <= 2/3)                    return 1; // CPU CHOOSES PAPER
+  else                                               return 2; // CPU CHOOSES SCISSORS
+}
 
 function PlayRound(humanChoice)
 {
@@ -70,18 +75,8 @@ function PlayRound(humanChoice)
       humanWins++;
       break;
   }
-
   scoreboardHumanScore.textContent = "HUMAN: " + humanWins;
   scoreboardCPUScore.textContent = "CPU: " + cpuWins;
-}
-
-//Computer makes a random choice...
-function getCpuChoice()
-{
-  let cpuChoiceInput = Math.random();
-  if (0 <= cpuChoiceInput  && cpuChoiceInput <= 1/3) return 0; // CPU CHOOSES ROCK
-  else if (cpuChoiceInput <= 2/3)                    return 1; // CPU CHOOSES PAPER
-  else                                               return 2; // CPU CHOOSES SCISSORS
 }
 
 function checkWinLose(humanChoice, cpuChoice) {
