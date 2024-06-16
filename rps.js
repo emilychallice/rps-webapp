@@ -13,34 +13,32 @@ const scissorsButton = document.querySelector("#scissors-button");
 const headerTitle = document.querySelector("#page-header-title");
 const headerStatement = document.querySelector("#page-header-statement");
 
-function rockButtonFunction()
+function selectButton(e)
 {
-  humanChoice = 0;
-  headerTitle.textContent = "You chose Rock";
-  PlayRound(0);
+  let buttons = [rockButton, paperButton, scissorsButton];
+  let choiceNames = ["Rock", "Paper", "Scissors"];
+
+  let buttonID = buttons.findIndex( (elem) => {return (elem == e.target);} );
+
+  // Activate correct button
+  buttons.map( (b) => {b.classList.remove("active");} );
+  e.target.classList.add("active");
+
+  // Update player's selection
+  humanChoice = buttonID;
+  headerTitle.textContent = "You chose " + choiceNames[buttonID];
+
+  // Play round based on player's selection
+  PlayRound(buttonID);
 }
 
-function paperButtonFunction()
+rockButton.addEventListener("click", selectButton);
+paperButton.addEventListener("click", selectButton);
+scissorsButton.addEventListener("click", selectButton);
+
+
+function PlayRound(humanChoice)
 {
-  humanChoice = 1;
-  headerTitle.textContent = "You chose Paper";
-  PlayRound(1);
-}
-
-function scissorsButtonFunction()
-{
-  humanChoice = 2;
-  headerTitle.textContent = "You chose Scissors";
-  PlayRound(2);
-}
-
-rockButton.addEventListener("click", rockButtonFunction);
-paperButton.addEventListener("click", paperButtonFunction);
-scissorsButton.addEventListener("click", scissorsButtonFunction);
-
-
-function PlayRound(humanChoice) {
-
   let cpuChoice = getCpuChoice();
   switch (cpuChoice)
   {
