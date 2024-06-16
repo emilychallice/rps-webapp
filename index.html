@@ -1,16 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROCK PAPER SCISSORS :: CONSOLE</title>
+  <title>ROCK PAPER SCISSORS :: UI</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="rps.js"></script>
 </head>
 
 <body>
+  <header class="flex-col">
+    <h1 id="page-header-title">Rock, Paper, Scissors</h1>
+    <p id="page-header-statement">Are you ready?</p>
+  </header>
 
-  <script src="javascript.js"></script>
-  
+  <div id="rps-buttons" class="flex-row">
+    <button id="rock-button">Rock</button>
+    <button id="paper-button">Paper</button>
+    <button id="scissors-button">Scissors</button>
+  </div>
 </body>
 
 </html>
