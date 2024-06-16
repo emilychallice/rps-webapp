@@ -12,6 +12,8 @@ const scissorsButton = document.querySelector("#scissors-button");
 
 const headerTitle = document.querySelector("#page-header-title");
 const headerStatement = document.querySelector("#page-header-statement");
+const scoreboardHumanScore = document.querySelector("#scoreboard-human-score");
+const scoreboardCPUScore = document.querySelector("#scoreboard-cpu-score");
 
 function selectButton(e)
 {
@@ -69,7 +71,8 @@ function PlayRound(humanChoice)
       break;
   }
 
-  headerStatement.textContent += " --- Score: HUMAN: " + humanWins + " |  CPU: " + cpuWins;
+  scoreboardHumanScore.textContent = "HUMAN: " + humanWins;
+  scoreboardCPUScore.textContent = "CPU: " + cpuWins;
 }
 
 //Computer makes a random choice...

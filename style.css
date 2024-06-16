@@ -81,10 +81,24 @@ button:active, button.active {
   font-size: 24px;
 }
 
-#page-header-statement {
+ #page-header-scoreboard {
+  justify-content: center;
+  gap: 300px;
+  margin-bottom: 30px;
+ }
+
+#page-header-statement,
+#page-header-scoreboard > p {
   /* border-top: 1px dotted var(--main-colour); */
   font-size: 14px;
   color: var(--main-colour-opacity);
   padding: 10px;
-  font-weight:bold;
+  font-weight: bold;
+}
+
+#page-header-scoreboard > p {
+  border-bottom: 1px solid var(--main-colour-opacity);
+  border-top: 1px solid var(--main-colour-opacity);
+  border-right: 70px solid transparent;
+  border-left: 70px solid transparent;
 }
