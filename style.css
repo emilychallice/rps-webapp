@@ -10,9 +10,11 @@
 }
 
 @media only screen and (max-width: 768px) {
-  body {
+  /* Mobile phone max-width breakpoint */
+  
+  /* body {
     background-color: blue;
-  }
+  } */
 }
 
 * {
