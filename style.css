@@ -43,7 +43,8 @@ button:hover {
 }
 
 @keyframes buttonanim {
-  50%  {background-color: black;}
+  0% {background-color: white;}
+  50% {background-color: var(--main-colour);};
 }
 
 button:active, button.active {
@@ -51,7 +52,9 @@ button:active, button.active {
   color: white;
   border: 2px solid var(--main-colour);
   animation-name: buttonanim;
-  animation-duration: 1s;
+  animation-duration: 500ms;
+  animation-timing-function: ease-out;
+  opacity: 1.0;
 }
 
 .flex-row {
