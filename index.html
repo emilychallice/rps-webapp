@@ -6,18 +6,21 @@
   <title>ROCK PAPER SCISSORS :: UI</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="rps.js"></script>
+  <script defer src="darkmode.js"></script>
 </head>
 
 <body>
   <header class="flex-col">
+    <button id="darkmode-button">Dark Mode</button>
+
     <div id="page-header-scoreboard" class="flex-row">
       <p id="scoreboard-human-score">HUMAN: 0</p>
       <p id="scoreboard-cpu-score">CPU: 0</p>
     </div>
+
     <h1 id="page-header-title">Rock, Paper, Scissors</h1>
     <p id="page-header-statement">Are you ready?</p>
   </header>
-
 
   <div id="rps-buttons" class="flex-row">
     <button id="rock-button">Rock</button>

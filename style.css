@@ -1,7 +1,9 @@
 :root {
-  --main-colour-opacity: rgba(153, 58, 110, 0.7);
-  --main-colour: rgba(153, 58, 110);
-  --secondary-colour: black;
+  --main-colour-opacity: rgba(216, 100, 164, 0.7);
+  --main-colour: rgba(216, 100, 164);
+  --bg-colour: white;
+  --bg-colour-lightmode: white;
+  --bg-colour-darkmode: black;
 }
 
 @font-face {
@@ -24,6 +26,7 @@
 }
 
 body {
+  background-color: var(--bg-colour);
   display: flex;
   flex-direction: column;
   /* margin: 200px; */
@@ -33,11 +36,12 @@ header {
   padding: 20px;
   text-align: center;
   gap: 10px;
+  justify-content: center;
 }
 
 button {
   padding: 10px 20px;
-  background-color: white;
+  background-color: var(--bg-colour);
   color: var(--main-colour);
   border: 2px solid var(--main-colour);
   border-radius: 20px;
@@ -65,6 +69,10 @@ button:active, button.active {
   opacity: 1.0;
 }
 
+#darkmode-button {
+  align-self: center;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -77,7 +85,6 @@ button:active, button.active {
 
 #rps-buttons {
   /* border: 1px dotted black; */
-  border-radius: 8px;
   padding: 15px;
   display: flex;
   justify-content: center;
