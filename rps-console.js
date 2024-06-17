@@ -72,7 +72,8 @@ function playRound()
   let winCond2 = humanChoice == 1 && cpuChoice == 0;
   let winCond3 = humanChoice == 2 && cpuChoice == 1;
 
-  if (humanChoice == cpuChoice) {
+  if (humanChoice == cpuChoice)
+  {
     console.log("It's a tie!");
   }
   else if (loseCond1 || loseCond2 || loseCond3)

@@ -79,7 +79,8 @@ function PlayRound(humanChoice)
   scoreboardCPUScore.textContent = "CPU: " + cpuWins;
 }
 
-function checkWinLose(humanChoice, cpuChoice) {
+function checkWinLose(humanChoice, cpuChoice)
+{
   // Rock vs Paper vs Scissors!
   ////////////////////////////////////////////////////////////////////////
   let loseCond1 = humanChoice == 0 && cpuChoice == 1;
@@ -94,7 +95,6 @@ function checkWinLose(humanChoice, cpuChoice) {
   if (cpuChoice === humanChoice)                 return 0; // TIE
   else if (loseCond1 || loseCond2 || loseCond3)  return 1; // CPU WINS / HUMAN LOSES
   else if (winCond1 || winCond2 || winCond3)     return 2; // HUMAN WINS / CPU LOSES
-
 }
 
 // TODO: compress r/p/scissorsButtonFunction into one function based on which button is clicked
