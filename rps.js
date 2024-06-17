@@ -28,7 +28,7 @@ function selectButton(e)
   headerTitle.textContent = "You chose " + choiceNames[buttonID];
 
   // Play round based on player's selection
-  PlayRound(buttonID);
+  playRound(buttonID);
 }
 
 rockButton.addEventListener("click", selectButton);
@@ -44,7 +44,7 @@ function getCpuChoice()
   else                                               return 2; // CPU CHOOSES SCISSORS
 }
 
-function PlayRound(humanChoice)
+function playRound(humanChoice)
 {
   let cpuChoice = getCpuChoice();
   switch (cpuChoice)
@@ -97,5 +97,4 @@ function checkWinLose(humanChoice, cpuChoice)
   else if (winCond1 || winCond2 || winCond3)     return 2; // HUMAN WINS / CPU LOSES
 }
 
-// TODO: compress r/p/scissorsButtonFunction into one function based on which button is clicked
-// TODO: make win/loseConds prettier...
+// TODO: make playRound and checkWinLose prettier...
