@@ -13,6 +13,10 @@ let headerStatement = document.querySelector("#page-header-statement");
 const scoreboardHumanScore = document.querySelector("#scoreboard-human-score");
 const scoreboardCPUScore = document.querySelector("#scoreboard-cpu-score");
 
+const rpsChoices = {
+  names: ["Rock", "Paper", "Scissors"],
+  buttons: [rockButton, paperButton, scissorsButton]
+};
 
 rockButton.addEventListener("click", selectButton);
 paperButton.addEventListener("click", selectButton);
@@ -21,40 +25,25 @@ scissorsButton.addEventListener("click", selectButton);
 
 function selectButton(e)
 {
-  let buttons = [rockButton, paperButton, scissorsButton];
-  let choiceNames = ["Rock", "Paper", "Scissors"];
+  // Get 0, 1, or 2 from clicking the Rock, Paper, or Scissors button
+  let humanChoice = rpsChoices.buttons.findIndex( (elem) => {return (elem == e.target);} );
 
-  let buttonID = buttons.findIndex( (elem) => {return (elem == e.target);} );
-
-  // Activate correct button
-  buttons.map( (b) => {b.classList.remove("active");} );
+  // Activate clicked button
+  rpsChoices.buttons.map( (b) => {b.classList.remove("active");} );
   e.target.classList.add("active");
 
   // Update player's selection
-  humanChoice = buttonID;
-  headerTitle.textContent = "You chose " + choiceNames[buttonID];
+  headerTitle.textContent = "You chose " + rpsChoices.names[ humanChoice ];
 
   // Play round based on player's selection
-  playRound(buttonID);
+  playRound(humanChoice);
 }
 
 function playRound(humanChoice)
 {
   let cpuChoice = getCpuChoice();
 
-  // Update CPU choice text
-  switch (cpuChoice)
-  {
-    case 0:
-      headerTitle.textContent += "... and CPU chooses Rock.";
-      break;
-    case 1:
-      headerTitle.textContent += "... and CPU chooses Paper.";
-      break;
-    case 2:
-      headerTitle.textContent += "... and CPU chooses Scissors.";
-      break;
-  }
+  headerTitle.textContent += "... and CPU chooses " + rpsChoices.names[cpuChoice];
 
   let winState = checkWinLose(humanChoice, cpuChoice);
   let gameOverText = "";
@@ -85,7 +74,7 @@ function playRound(humanChoice)
 /*----- OTHER FUNCTIONS -----*/
 /*===========================*/
 function checkWinLose(humanChoice, cpuChoice)
-{// Rock vs Paper vs Scissors!
+{ // Rock vs Paper vs Scissors!
   let loseCond1 = humanChoice == 0 && cpuChoice == 1;
   let loseCond2 = humanChoice == 1 && cpuChoice == 2;
   let loseCond3 = humanChoice == 2 && cpuChoice == 0;
