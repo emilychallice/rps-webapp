@@ -54,7 +54,7 @@ button:hover {
   cursor: pointer;
 }
 
-@keyframes buttonanim {
+@keyframes button-anim {
   0% {background-color: white;}
   50% {background-color: var(--main-colour);};
 }
@@ -63,14 +63,20 @@ button:active, button.active {
   background-color: var(--main-colour);
   color: white;
   border: 2px solid var(--main-colour);
-  animation-name: buttonanim;
+  animation-name: button-anim;
   animation-duration: 500ms;
   animation-timing-function: ease-out;
   opacity: 1.0;
 }
 
-#darkmode-button {
-  align-self: center;
+@keyframes fadein-anim {
+  0% {opacity: 0};
+  100% {opacity: 1};
+}
+
+.fading-in {
+  animation-name: fadein-anim;
+  animation-duration: 2s;
 }
 
 .flex-row {
@@ -116,4 +122,8 @@ button:active, button.active {
   border-top: 1px solid var(--main-colour-opacity);
   border-right: 70px solid transparent;
   border-left: 70px solid transparent;
+}
+
+#darkmode-button {
+  align-self: center;
 }
