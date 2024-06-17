@@ -4,6 +4,16 @@
   --bg-colour: white;
   --bg-colour-lightmode: white;
   --bg-colour-darkmode: black;
+
+  --both-buttons-active-colour: rgb(167, 75, 126);
+  --cpu-choice-colour: black;
+  --cpu-choice-colour-lightmode: black;
+  --cpu-choice-colour-darkmode: rgb(82, 40, 63);
+
+  --cpu-choice-colour-text: white;
+  --cpu-choice-colour-text-darkmode: white;
+  --cpu-choice-colour-text-lightmode: white;
+
 }
 
 @font-face {
@@ -58,15 +68,41 @@ button:hover {
   0% {background-color: white;}
   50% {background-color: var(--main-colour);};
 }
+@keyframes button-anim-cpu {
+  0% {background-color: var(--cpu-choice-colour); border: 2px solid var(--main-colour)}
+  50% {background-color: var(--cpu-choice-colour); border: 2px solid var(--cpu-choice-colour);};
+}
+@keyframes button-anim-both {
+  0% {background-color: white; border: 2px solid var(--main-colour)}
+  50% {background-color: var(--both-buttons-active-colour); border: 2px solid var(--both-buttons-active-colour);};
+}
 
 button:active, button.active {
   background-color: var(--main-colour);
-  color: white;
   border: 2px solid var(--main-colour);
+  color: white;
   animation-name: button-anim;
   animation-duration: 500ms;
   animation-timing-function: ease-out;
   opacity: 1.0;
+}
+
+button.active-cpu {
+  background-color: var(--cpu-choice-colour);
+  border: 2px solid var(--cpu-choice-colour);
+  color: var(--cpu-choice-colour-text);
+  animation-name: button-anim-cpu;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+
+button.active-both {
+  background-color: var(--both-buttons-active-colour);
+  border: 2px solid var(--both-buttons-active-colour);
+  color: white;
+  animation-name: button-anim-both;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
 }
 
 @keyframes fadein-anim {
@@ -107,23 +143,17 @@ button:active, button.active {
   align-self: center;
 }
 
-#human-choice-text,
-#cpu-choice-text {
-  color: var(--main-colour-opacity);
-  font-size: 24px;
-}
-
 #scoreboard {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 #win-lose-text,
 #scoreboard > p {
   /* border-top: 1px dotted var(--main-colour); */
-  font-size: 14px;
   color: var(--main-colour-opacity);
   padding: 10px;
   font-weight: bold;
+  font-size: 24px;
 }
 
 #scoreboard > p {
@@ -131,4 +161,5 @@ button:active, button.active {
   border-top: 1px solid var(--main-colour-opacity);
   border-right: 70px solid transparent;
   border-left: 70px solid transparent;
+  font-size: 14px;
 }

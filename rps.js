@@ -29,12 +29,16 @@ function selectButton(e)
   // Get 0, 1, or 2 from clicking the Rock, Paper, or Scissors button
   let humanChoice = rpsChoices.buttons.findIndex( (elem) => {return (elem == e.target);} );
 
+  // Remove CPU active class 
+  rpsChoices.buttons.map( (b) => {b.classList.remove("active-cpu");} );
+  rpsChoices.buttons.map( (b) => {b.classList.remove("active-both");} );
+
   // Activate clicked button
   rpsChoices.buttons.map( (b) => {b.classList.remove("active");} );
   e.target.classList.add("active");
 
   // Update player's selection
-  humanChoiceText.textContent = "You chose " + rpsChoices.names[ humanChoice ] + "\xa0";
+  //humanChoiceText.textContent = "You chose " + rpsChoices.names[ humanChoice ] + "\xa0";
 
   // Play round based on player's selection
   playRound(humanChoice);
@@ -44,8 +48,15 @@ function playRound(humanChoice)
 {
   let cpuChoice = getCpuChoice();
 
-  // humanChoiceText.textContent += "... and CPU chooses " + rpsChoices.names[cpuChoice];
-  replaceText( cpuChoiceText, "... CPU chose " + rpsChoices.names[cpuChoice] );
+  // Update button that contains CPU choice
+  if (cpuChoice === humanChoice)
+  {
+    rpsChoices.buttons[cpuChoice].classList.add("active-both");
+  }
+  else
+  {
+    rpsChoices.buttons[cpuChoice].classList.add("active-cpu");
+  }
 
   let winState = checkWinLose(humanChoice, cpuChoice);
   let gameOverText = "";
