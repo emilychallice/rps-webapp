@@ -7,8 +7,9 @@ const paperButton = document.querySelector("#paper-button");
 const scissorsButton = document.querySelector("#scissors-button");
 
 const header = document.querySelector("header")
-let headerTitle = document.querySelector("#page-header-title");
-let headerStatement = document.querySelector("#page-header-statement");
+let humanChoiceText = document.querySelector("#human-choice-text");
+let cpuChoiceText = document.querySelector("#cpu-choice-text");
+let winLoseText = document.querySelector("#win-lose-text");
 
 const scoreboardHumanScore = document.querySelector("#scoreboard-human-score");
 const scoreboardCPUScore = document.querySelector("#scoreboard-cpu-score");
@@ -33,7 +34,7 @@ function selectButton(e)
   e.target.classList.add("active");
 
   // Update player's selection
-  headerTitle.textContent = "You chose " + rpsChoices.names[ humanChoice ];
+  humanChoiceText.textContent = "You chose " + rpsChoices.names[ humanChoice ] + "\xa0\xa0\xa0\xa0\xa0";
 
   // Play round based on player's selection
   playRound(humanChoice);
@@ -43,7 +44,8 @@ function playRound(humanChoice)
 {
   let cpuChoice = getCpuChoice();
 
-  headerTitle.textContent += "... and CPU chooses " + rpsChoices.names[cpuChoice];
+  // humanChoiceText.textContent += "... and CPU chooses " + rpsChoices.names[cpuChoice];
+  replaceText( cpuChoiceText, "CPU chose " + rpsChoices.names[cpuChoice] );
 
   let winState = checkWinLose(humanChoice, cpuChoice);
   let gameOverText = "";
@@ -63,7 +65,7 @@ function playRound(humanChoice)
   }
 
   // Update win state text - replace the entire node so the fadein animation replays
-  replaceText(headerStatement, gameOverText);
+  replaceText(winLoseText, gameOverText);
 
   // Update scoreboard
   scoreboardHumanScore.textContent = "HUMAN: " + humanWins;

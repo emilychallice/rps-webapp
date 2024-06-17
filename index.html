@@ -13,13 +13,17 @@
   <header class="flex-col">
     <button id="darkmode-button">Dark Mode</button>
 
-    <div id="page-header-scoreboard" class="flex-row">
+    <div id="scoreboard" class="flex-row">
       <p id="scoreboard-human-score">HUMAN: 0</p>
       <p id="scoreboard-cpu-score">CPU: 0</p>
     </div>
 
-    <h1 id="page-header-title">Rock, Paper, Scissors</h1>
-    <p id="page-header-statement" class="fading-in">Are you ready?</p>
+    <div id="choices-text" class="flex-row">
+      <h1 id="human-choice-text">Rock, Paper, Scissors</h1>
+      <h1 id="cpu-choice-text" class="fadein-short"></h1>
+    </div>
+
+    <p id="win-lose-text" class="fadein-long">Are you ready?</p>
   </header>
 
   <div id="rps-buttons" class="flex-row">

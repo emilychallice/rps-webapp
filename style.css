@@ -74,14 +74,20 @@ button:active, button.active {
   100% {opacity: 1};
 }
 
-.fading-in {
+.fadein-short {
   animation-name: fadein-anim;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
+}
+
+.fadein-long {
+  animation-name: fadein-anim;
+  animation-duration: 3s;
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .flex-col {
@@ -97,19 +103,22 @@ button:active, button.active {
   gap: 15px;
 }
 
-#page-header-title {
+#darkmode-button {
+  align-self: center;
+}
+
+#human-choice-text,
+#cpu-choice-text {
   color: var(--main-colour-opacity);
   font-size: 24px;
 }
 
- #page-header-scoreboard {
-  justify-content: center;
-  /* gap: 300px; */
+#scoreboard {
   margin-bottom: 30px;
- }
+}
 
-#page-header-statement,
-#page-header-scoreboard > p {
+#win-lose-text,
+#scoreboard > p {
   /* border-top: 1px dotted var(--main-colour); */
   font-size: 14px;
   color: var(--main-colour-opacity);
@@ -117,13 +126,9 @@ button:active, button.active {
   font-weight: bold;
 }
 
-#page-header-scoreboard > p {
+#scoreboard > p {
   border-bottom: 1px solid var(--main-colour-opacity);
   border-top: 1px solid var(--main-colour-opacity);
   border-right: 70px solid transparent;
   border-left: 70px solid transparent;
-}
-
-#darkmode-button {
-  align-self: center;
 }
