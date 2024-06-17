@@ -34,7 +34,7 @@ function selectButton(e)
   e.target.classList.add("active");
 
   // Update player's selection
-  humanChoiceText.textContent = "You chose " + rpsChoices.names[ humanChoice ] + "\xa0\xa0\xa0\xa0\xa0";
+  humanChoiceText.textContent = "You chose " + rpsChoices.names[ humanChoice ] + "\xa0";
 
   // Play round based on player's selection
   playRound(humanChoice);
@@ -45,7 +45,7 @@ function playRound(humanChoice)
   let cpuChoice = getCpuChoice();
 
   // humanChoiceText.textContent += "... and CPU chooses " + rpsChoices.names[cpuChoice];
-  replaceText( cpuChoiceText, "CPU chose " + rpsChoices.names[cpuChoice] );
+  replaceText( cpuChoiceText, "... CPU chose " + rpsChoices.names[cpuChoice] );
 
   let winState = checkWinLose(humanChoice, cpuChoice);
   let gameOverText = "";
