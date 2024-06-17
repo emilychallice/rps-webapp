@@ -65,19 +65,25 @@ button:hover {
 }
 
 @keyframes button-anim {
-  0% {background-color: white;}
+  0% {background-color: var(--bg-colour);}
   50% {background-color: var(--main-colour);};
 }
+
 @keyframes button-anim-cpu {
-  0% {background-color: var(--cpu-choice-colour); border: 2px solid var(--main-colour)}
+  0% {background-color: var(--bg-colour); border: 2px solid var(--main-colour)}
   50% {background-color: var(--cpu-choice-colour); border: 2px solid var(--cpu-choice-colour);};
 }
+
 @keyframes button-anim-both {
-  0% {background-color: white; border: 2px solid var(--main-colour)}
+  0% {background-color: var(--bg-colour); border: 2px solid var(--main-colour)}
   50% {background-color: var(--both-buttons-active-colour); border: 2px solid var(--both-buttons-active-colour);};
 }
 
-button:active, button.active {
+button:active {
+  opacity: 1.0;
+}
+
+button.active-human {
   background-color: var(--main-colour);
   border: 2px solid var(--main-colour);
   color: white;
@@ -92,7 +98,7 @@ button.active-cpu {
   border: 2px solid var(--cpu-choice-colour);
   color: var(--cpu-choice-colour-text);
   animation-name: button-anim-cpu;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-timing-function: ease-out;
 }
 
@@ -101,7 +107,7 @@ button.active-both {
   border: 2px solid var(--both-buttons-active-colour);
   color: white;
   animation-name: button-anim-both;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-timing-function: ease-out;
 }
 

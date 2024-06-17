@@ -34,8 +34,8 @@ function selectButton(e)
   rpsChoices.buttons.map( (b) => {b.classList.remove("active-both");} );
 
   // Activate clicked button
-  rpsChoices.buttons.map( (b) => {b.classList.remove("active");} );
-  e.target.classList.add("active");
+  rpsChoices.buttons.map( (b) => {b.classList.remove("active-human");} );
+  e.target.classList.add("active-human");
 
   // Update player's selection
   //humanChoiceText.textContent = "You chose " + rpsChoices.names[ humanChoice ] + "\xa0";
@@ -49,14 +49,8 @@ function playRound(humanChoice)
   let cpuChoice = getCpuChoice();
 
   // Update button that contains CPU choice
-  if (cpuChoice === humanChoice)
-  {
-    rpsChoices.buttons[cpuChoice].classList.add("active-both");
-  }
-  else
-  {
-    rpsChoices.buttons[cpuChoice].classList.add("active-cpu");
-  }
+  (cpuChoice === humanChoice) ? rpsChoices.buttons[cpuChoice].classList.add("active-both") :
+                                rpsChoices.buttons[cpuChoice].classList.add("active-cpu");
 
   let winState = checkWinLose(humanChoice, cpuChoice);
   let gameOverText = "";
